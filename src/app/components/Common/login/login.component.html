@@ -1,1 +1,12 @@
-<p>login works!</p>
+<nb-card>
+    <nb-card-header>
+        Connexion
+    </nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="loginFG" (ngSubmit)="onSubmit()">
+            <p>E-mail : <input formControlName="email" nbInput></p>
+            <p>Mot de passe : <input formControlName="password" type="password" nbInput></p>
+            <button nbButton type="submit" [disabled]="loginFG.invalid">Se connecter</button>
+        </form>
+    </nb-card-body>
+</nb-card>

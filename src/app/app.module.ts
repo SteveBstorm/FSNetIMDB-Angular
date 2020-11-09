@@ -13,6 +13,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/common/login/login.component';
 import { RegisterComponent } from './components/common/register/register.component';
+import { AuthComponent } from './components/common/auth/auth.component';
+import { AdminPanelComponent } from './components/Admin/admin-panel/admin-panel.component';
+import { MovieComponent } from './components/movie/movie.component';
+import { DetailsComponent } from './components/movie/details/details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { RegisterComponent } from './components/common/register/register.compone
     HomeComponent,
     AboutComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AuthComponent,
+    AdminPanelComponent,
+    MovieComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
