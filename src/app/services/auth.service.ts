@@ -36,6 +36,7 @@ export class AuthService {
       next : (data : User) => { 
         this.currentUser = data;
         sessionStorage.setItem("token", this.currentUser.token)
+        sessionStorage.setItem("role", this.currentUser.isAdmin ? "admin" : "user")
         this.emitIsConnected()
        },
       error : error =>  {console.log(error); console.log("ca plante")}
@@ -46,8 +47,7 @@ export class AuthService {
 
   logout(){
     this.currentUser = null;
-    sessionStorage.setItem('token', null);
-    sessionStorage.setItem('token', '');
+    sessionStorage.clear();
     this.emitIsConnected();
     this._route.navigate(['/home'])
   }

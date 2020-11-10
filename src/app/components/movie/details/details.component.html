@@ -25,9 +25,8 @@
         <nb-card *ngFor="let item of commentList">
             <nb-card-header>
                 De : {{item.userID}} le : {{item.postDate | date: 'dd/MM/yyyy'}}
-                 <span *ngIf="currentUser.isAdmin" class="right">
+                 <span *ngIf="userRole == 'admin'" class="right">
                      <button 
-                     
                     nbButton status="danger" 
                     (click)="deleteComment(item.id)">X
                 </button>

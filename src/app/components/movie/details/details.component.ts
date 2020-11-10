@@ -15,6 +15,7 @@ import { User } from 'src/app/models/User.model';
 })
 export class DetailsComponent implements OnInit {
 
+  userRole : string = sessionStorage.getItem("role")
   currentMovie : Movie
   commentList : Comment[] = []
   castToggled : boolean;
@@ -25,14 +26,14 @@ export class DetailsComponent implements OnInit {
     private _commentService : CommentService,
     private _route : ActivatedRoute,
     private _dialog : NbDialogService,
-    private _authService : AuthService
+    //private _authService : AuthService
       ) { }
 
   ngOnInit(): void {
     let Id = this._route.snapshot.params['id']
     this._movieService.getOne(Id).subscribe((data : Movie) => this.currentMovie = data)
     this._commentService.getByMovieId(Id).subscribe((datac : Comment[]) => this.commentList = datac)
-    this.currentUser = this._authService.currentUser
+    //this.currentUser = this._authService.currentUser
   }
 
   castToggle() {
