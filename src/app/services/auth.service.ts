@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/User.model';
 import { Observable, Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +17,15 @@ export class AuthService {
 
   isConnectedSubject : Subject<User> = new Subject<User>();
 
+  
+
   emitIsConnected() {
     this.isConnectedSubject.next(this.currentUser)
   }
 
   constructor(
-    private _client : HttpClient
+    private _client : HttpClient,
+    private _route : Router
   ) { }
 
   login(email : string, password : string){
@@ -30,9 +34,8 @@ export class AuthService {
     user.password = password;
     this._client.post<User>(this.url+"/auth/auth",user).subscribe({
       next : (data : User) => { 
-        console.log(data['token'])
-        this.isConnected = true;
         this.currentUser = data;
+        sessionStorage.setItem("token", this.currentUser.token)
         this.emitIsConnected()
        },
       error : error =>  {console.log(error); console.log("ca plante")}
@@ -43,7 +46,10 @@ export class AuthService {
 
   logout(){
     this.currentUser = null;
+    sessionStorage.setItem('token', null);
+    sessionStorage.setItem('token', '');
     this.emitIsConnected();
+    this._route.navigate(['/home'])
   }
 
 }

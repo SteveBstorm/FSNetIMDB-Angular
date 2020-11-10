@@ -17,6 +17,8 @@ import { AuthComponent } from './components/common/auth/auth.component';
 import { AdminPanelComponent } from './components/Admin/admin-panel/admin-panel.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { DetailsComponent } from './components/movie/details/details.component';
+import { PersondetailComponent } from './components/person/persondetail/persondetail.component';
+import { NewCommentComponent } from './components/new-comment/new-comment.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { DetailsComponent } from './components/movie/details/details.component';
     AuthComponent,
     AdminPanelComponent,
     MovieComponent,
-    DetailsComponent
+    DetailsComponent,
+    PersondetailComponent,
+    NewCommentComponent
   ],
   imports: [
     BrowserModule,

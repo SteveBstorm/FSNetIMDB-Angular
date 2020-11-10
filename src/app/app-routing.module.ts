@@ -5,13 +5,20 @@ import { AdminPanelComponent } from './components/Admin/admin-panel/admin-panel.
 import { LoginComponent } from './components/common/login/login.component';
 import { RegisterComponent } from './components/common/register/register.component';
 import { HomeComponent } from './components/home/home.component';
+import { DetailsComponent } from './components/movie/details/details.component';
+import { MovieComponent } from './components/movie/movie.component';
+import { PersondetailComponent } from './components/person/persondetail/persondetail.component';
 
 const routes: Routes = [
   { path : 'home', component : HomeComponent },
   { path : 'about', component : AboutComponent },
   { path : 'login', component : LoginComponent},
   { path : 'register', component : RegisterComponent},
-  { path : 'adminPanel', component : AdminPanelComponent}
+  { path : 'adminPanel', component : AdminPanelComponent},
+  { path : 'movie', component : MovieComponent },
+  { path : 'detail/:id', component : DetailsComponent},
+  { path : 'pdetail/:id', component : PersondetailComponent},
+
 ];
 
 @NgModule({

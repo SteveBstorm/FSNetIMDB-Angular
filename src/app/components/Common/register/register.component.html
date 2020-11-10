@@ -1,1 +1,15 @@
-<p>register works!</p>
+<nb-card>
+    <nb-card-header>
+        <h5>Nouvel utilisateur</h5>
+    </nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="newUserFG" (ngSubmit)="onSubmit()">
+            <p>E-mail : <input nbInput formControlName="email"></p>
+            <p>Mot de passe : <input nbInput formControlName="password" type="password"></p>
+            <p>Prenom : <input nbInput formControlName="firstName"></p>
+            <p>Nom : <input nbInput formControlName="lastName"></p>
+            <p>Date de naissance : <input nbInput formControlName="birthDate" type="date"></p>
+            <p><button nbButton [disabled]="newUserFG.invalid">Valider</button></p>
+        </form>
+    </nb-card-body>
+</nb-card>

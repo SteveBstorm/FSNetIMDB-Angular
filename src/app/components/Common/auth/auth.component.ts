@@ -18,16 +18,12 @@ export class AuthComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this._authService.logout();
     this.isConnectedSub = this._authService.isConnectedSubject.subscribe(
       () => {
-              this.currentUser = this._authService.currentUser;
-              
+              this.currentUser = this._authService.currentUser 
             }
     )
-
-    
-
-  
   }
 
   logout(){

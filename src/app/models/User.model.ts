@@ -8,3 +8,11 @@ export class User {
     isActive : boolean;
     isAdmin : boolean;
 }
+
+export class NewUser {
+    email : string;
+    password : string;
+    lastName : string;
+    firstName : string;
+    birthDate : Date;
+}
